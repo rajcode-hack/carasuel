@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function validateEmail() {
+        // There are, I feel, better version of this regex online
+        // You can check "https://emailregex.com/"
+        var reg =
+          /^([A-Za-z0-9_\-\.]){1,}\@([A-Za-z0-9_\-\.]){1,}\.([A-Za-z]{2,4})$/;
+
+        // document.getElementById() - Easier to read & understand, and more widely used
+        var address = document.getElementById("Email").value;
+
+        // Corrected your returns - not the main issue in the function, but the old
+        // returns might have caused confusion
+        if (reg.test(address) == false) {
+          alert("Email not valid");
+          return false;
+        }
+        return alert("you are logged in");
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <h2>Email:</h2>
+      <input type="text" name="Email" id="Email" />
+    </form>
+
+    <!-- You had a typo on the onclick but has since been fixed -->
+    <input type="button" onclick="validateEmail()" value="Submit" />
+  </body>
+</html>
